@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { ArrowDown } from 'react-feather';
+import ReactToPrint from "react-to-print";
 import styles from './Create.module.css';
 import CreateEdit from '../components/CreateEdit/CreateEdit';
 import Resume from '../components/Resume/Resume';
@@ -75,11 +76,24 @@ export default function Create() {
               <span
               key={item}
               style={{ backgroundColor: item }} 
-              className={styles.color} />
-              ))
-          } 
+              className={`${styles.color} ${
+                activeColor === item ? styles.active : ""
+              }`}
+              onClick={() => setActiveColor(item)}
+            />
+          ))}
         </div>
-        <button>Download <ArrowDown/> </button>
+        <ReactToPrint
+          trigger={() => {
+            return (
+              <button>
+                Download <ArrowDown />
+              </button>
+            );
+          }}
+          content={() => resumeRef.current}
+        />
+        {/* <button>Download <ArrowDown/> </button> */}
       </div>
       <div className={styles.main}>
         <CreateEdit sections={sections} information={resumeInformation} setInformation={setResumeInformation} />
