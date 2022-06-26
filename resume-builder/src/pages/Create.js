@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { ArrowDown } from 'react-feather';
 import styles from './Create.module.css';
 import CreateEdit from '../components/CreateEdit/CreateEdit';
+import Resume from '../components/Resume/Resume';
 
 export default function Create() {
 
@@ -13,7 +14,7 @@ export default function Create() {
     project: "Projects",
     education: "Education",
     achievement: "Achievements",
-    skills: "Skills/ Interests",
+    skills: "Skills",
     summary: "Summary",
     other: "Other",
   };
@@ -82,6 +83,7 @@ export default function Create() {
       </div>
       <div className={styles.main}>
         <CreateEdit sections={sections} information={resumeInformation} setInformation={setResumeInformation} />
+        <Resume ref={resumeRef} sections={sections} information={resumeInformation} activeColor={activeColor}/>
       </div>
     </div>
 

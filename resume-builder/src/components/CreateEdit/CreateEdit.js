@@ -226,7 +226,7 @@ export default function CreateEdit(props) {
                 <div className={styles.row}>
                     <InputController
                     label="Name"
-                    placeholder="Enter your full name eg. Aashu"
+                    placeholder="Enter your full name eg. Aanchi Glitch"
                     value={values.name}
                     onChange={(event) =>
                         setValues((prev) => ({ ...prev, name: event.target.value }))
@@ -309,7 +309,7 @@ export default function CreateEdit(props) {
             const skillsBody = (
                 <div className={styles.detail}>
                 <div className={styles.column}>
-                    <label>List your Skills</label>
+                    <label>List your Skills/Frameworks</label>
                     <InputController
                     placeholder="Line 1"
                     value={values.points ? values.points[0] : ""}
@@ -331,7 +331,7 @@ export default function CreateEdit(props) {
                     onChange={(event) => handlePointUpdate(event.target.value, 3)}
                     />
                     <br/>
-                    <label>List your Intrests</label>
+                    <label>List your Technical Languages</label>
                     <InputController
                     placeholder="Line 5"
                     value={values.points ? values.points[4] : ""}
@@ -358,7 +358,7 @@ export default function CreateEdit(props) {
             const summaryBody = (
                 <div className={styles.detail}>
                 <InputController
-                    label="Summary"
+                    label="Professional Summary"
                     value={values.summary}
                     placeholder="Enter your objective/summary"
                     onChange={(event) =>
