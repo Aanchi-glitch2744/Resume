@@ -48,6 +48,7 @@ body{
   .tempsty {
     /* border: 2px solid saddlebrown; */
     padding: 0.5rem;
+   
   }
   
   .toolbar button {
@@ -97,8 +98,15 @@ body{
 .imgs {
     border-color: #00d776;
     width: 120px;
+
   }
 
   .imgs .active {
     border: 2px solid #000;
   }
+
+  .image {
+    height :250px;
+    display: flex;
+  }
+

@@ -5,8 +5,7 @@ import styles from './Create.module.css';
 import CreateEdit from '../components/CreateEdit/CreateEdit';
 import Resume from '../components/Resume/Resume';
 
-// import temp1 from "../assets/images/kitten-small.png";
-// import temp2 from "../assets/images/download.png";
+// import images from './images'; works method2
 
 export default function Create() {
 
@@ -21,13 +20,23 @@ export default function Create() {
   const templates = { temp1 , temp2 , temp3 , temp4, temp5 };
   const [selected, setSelected] = useState(templates.temp1);
 
-  const imgs = [
-    "https://res.cloudinary.com/stealthman22/image/upload/v1586308024/new-portfolio/hero/time-lapse-photography-of-waterfalls-during-sunset-210186.jpg",
-    "https://res.cloudinary.com/stealthman22/image/upload/v1586308023/new-portfolio/hero/two-cargo-ships-sailing-near-city-2144905.jpg",
-    '../assets/images/temp1'
-  ];
-  const [activeImg, setActiveImg] = useState(imgs[0]);
 
+  function handleSelected (activeColor, setSelected) {
+    if(activeColor ==colors[0]){
+      return templates.temp1;
+    }else if(activeColor ==colors[1]){
+      return templates.temp2;
+    }else if(activeColor ==colors[2]){
+      return templates.temp3;
+    }else if(activeColor ==colors[3]){
+      return templates.temp4;
+    }else if(activeColor ==colors[4]){
+      return templates.temp5;
+    }
+    else{
+      return templates.temp2;
+    }
+  }
 
   const sections = {
     basicInfo: "Basic Info",
@@ -100,8 +109,9 @@ export default function Create() {
                 activeColor === item ? styles.active : ""
               } $(activeImg === item ? styles.active : '')`}
               // onClick={() => setActiveColor(item) }
-              onClick={() => {setActiveColor(item); setSelected(templates.temp2)} } //works
+              // onClick={() => {setActiveColor(item); setSelected(templates.temp2)} } //works
               //onClick={() => {setActiveColor(item); setActiveImg(imgs.map(item))} } 
+              onClick={() => {setActiveColor(item); setSelected(handleSelected()) } }  //works for defalut color
             />
           ))}
           <p> : Select a template color to preview</p>
@@ -119,26 +129,16 @@ export default function Create() {
       </div>
       <div className={styles.tempsty}>
         <h4>Template Preview</h4>
-        <img src={selected} alt='shirt' />
+        <img src={selected} alt='template' className={styles.image} activeColor={activeColor}/>
       </div>
-      {/* <div className={styles.imgs}>
-      {imgs.map((item) => (
-            <span
-              key={item}
-              // style={{ backgroundColor: item }}
-              className={`
-              ${styles.imgs} ${activeImg === item ? styles.active : ""} 
-                 
-              `}
-              // onClick={() => setActiveColor(item) }
-              onClick={
-                () => setActiveImg(item)
-              }
-            />
-          ))}
-          <img src={activeImg} alt='shirt' /> 
+       {/* <div className={styles.imgs}> //works method 2 for displaying all images
+       {   
+       images.map(({id, src}) =>
+        <img key={id} src={src} className={styles.image} />) 
+        }
+      </div>  
+      */}
 
-      </div>*/}
       <div className={styles.main}>
         <CreateEdit sections={sections} information={resumeInformation} setInformation={setResumeInformation} />
         <Resume ref={resumeRef} sections={sections} information={resumeInformation} activeColor={activeColor}/>
