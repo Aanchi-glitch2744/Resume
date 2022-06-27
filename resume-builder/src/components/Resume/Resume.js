@@ -58,6 +58,11 @@ const Resume = forwardRef((props, ref) => {
               ) : (
                 <span />
               )}
+              {item.subTitle ? (
+                <p className={styles.subTitle}>{item.subTitle}</p>
+              ) : (
+                <span />
+              )}
               {item.companyName ? (
                 <p className={styles.subTitle}>{item.companyName}</p>
               ) : (
@@ -180,7 +185,7 @@ const Resume = forwardRef((props, ref) => {
                 <span />
               )}
               {item.college ? (
-                <p className={styles.subTitle}>Some college name</p>
+                <p className={styles.subTitle}>{item.subTitle}Campus Name</p>
               ) : (
                 <span />
               )}

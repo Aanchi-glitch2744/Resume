@@ -474,6 +474,7 @@ export default function CreateEdit(props) {
                   case sections.education: {
                     const tempDetail = {
                       title: values.title,
+                      subTitle: values.subTitle,
                       college: values.college,
                       startDate: values.startDate,
                       endDate: values.endDate,

@@ -1,3 +1,7 @@
+body{
+  /* background-color: aqua; */
+  background-image: linear-gradient(to right, aqua, #10d9bb);
+}
 .container {
     padding: 30px;
     display: flex;
@@ -5,11 +9,16 @@
     align-items: center;
     gap: 30px;
     padding-top: 0;
+    /* background-color: #8accff; */
+    background-image: linear-gradient(to right, #b3ddfd, #00B4D7);
+    border-radius: 0.5rem;
   }
   
   .heading {
     font-weight: 500;
-    font-size: 2.1rem;
+    font-size: 2.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+    text-shadow: 1px 1px #ffc2c1;
   }
   
   .toolbar {
@@ -35,11 +44,16 @@
   .colors .active {
     border: 2px solid #000;
   }
+
+  .tempsty {
+    /* border: 2px solid saddlebrown; */
+    padding: 0.5rem;
+  }
   
   .toolbar button {
     padding: 8px 16px;
     border-radius: 5px;
-    background-color: #239ce2;
+    /* background-color: #e29623; */
     color: #fff;
     outline: none;
     border: none;
@@ -50,6 +64,17 @@
     gap: 5px;
     align-items: center;
     cursor: pointer;
+    background-image: linear-gradient(to right, #10d9bb, #00d776, #0d9104);
+    box-shadow: 3px 3px 6px #0000006c, 8px 8px 20px #00000030,
+    -3px -3px 6px #ffffff90, -8px -8px 20px #ffffff30;
+
+  }
+
+  .toolbar button:hover {
+    background-position: 80% 0;
+    transition: all .4s ease-in-out;
+    color: #000000;
+    background-image: linear-gradient(to right, #0d9104, #00d776, #10d9bb);
   }
   
   .toolbar button svg {
@@ -62,5 +87,18 @@
     flex-direction: column;
     gap: 30px;
     width: 100%;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-radius: 0.25rem;
   }
   
+
+
+.imgs {
+    border-color: #00d776;
+    width: 120px;
+  }
+
+  .imgs .active {
+    border: 2px solid #000;
+  }
