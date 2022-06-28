@@ -10,6 +10,8 @@ import Resume from '../components/Resume/Resume';
 export default function Create() {
 
   const colors = ["#239ce2", "#48bb78", "#ee9cff", "#a0aec0", "#ed8936"];
+  
+  const [activeColor, setActiveColor] = useState(colors[0]);
 
   const temp1 = require('../assets/images/temp1.jpg');
   const temp2 = require('../assets/images/temp2.jpg');
@@ -22,15 +24,15 @@ export default function Create() {
 
 
   function handleSelected (activeColor, setSelected) {
-    if(activeColor ==colors[0]){
+    if(activeColor === colors[0]){
       return templates.temp1;
-    }else if(activeColor ==colors[1]){
+    }else if(activeColor === colors[1]){
       return templates.temp2;
-    }else if(activeColor ==colors[2]){
+    }else if(activeColor === colors[2]){
       return templates.temp3;
-    }else if(activeColor ==colors[3]){
+    }else if(activeColor === colors[3]){
       return templates.temp4;
-    }else if(activeColor ==colors[4]){
+    }else if(activeColor === colors[4]){
       return templates.temp5;
     }
     else{
@@ -51,7 +53,10 @@ export default function Create() {
 
   const resumeRef = useRef();
 
-  const [activeColor, setActiveColor] = useState(colors[0]);
+  // function handleRef() {
+  //   return (console.log(resumeRef.current));
+  // }
+
   const [resumeInformation, setResumeInformation] = useState({
     [sections.basicInfo]: {
       id: sections.basicInfo,
@@ -125,8 +130,19 @@ export default function Create() {
             );
           }}
           content={() => resumeRef.current}
+          // {
+          //   console.log
+          // }
+        //   {
+        //   function saveContentData = (...resumeRef.current) => {
+        //     const jsonData = JSON.stringify(resumeRef.current)
+        //   }
+        // }
         />
       </div>
+      {/* <div>
+        {handleRef()}
+      </div> */}
       <div className={styles.tempsty}>
         <h4>Template Preview</h4>
         <img src={selected} alt='template' className={styles.image} activeColor={activeColor}/>

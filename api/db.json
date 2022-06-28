@@ -1,0 +1,16 @@
+
+{
+  "detail": [
+      {
+        "id": 1,
+          "email": "email",
+          "github": "GithubBasicInfo",
+          "linkedin": "Linkdin",
+          "name": "Aanchal", 
+          "phone": "phone",
+          "title": "fontned Title",
+          " id": "Basic Info",
+          "sectionTitle": "Basic Info"
+      }
+    ]
+}

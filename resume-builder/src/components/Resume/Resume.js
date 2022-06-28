@@ -8,6 +8,7 @@ import {
   Paperclip,
   Phone,
 } from "react-feather";
+import Axios from 'axios';
 
 import styles from "./Resume.module.css";
 

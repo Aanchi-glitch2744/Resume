@@ -4,6 +4,8 @@ import { X } from "react-feather";
 import styles from "./CreateEdit.module.css";
 import InputController from '../InputController/InputController'
 
+import Axios from 'axios';
+
 
 export default function CreateEdit(props) {
 
@@ -26,6 +28,10 @@ export default function CreateEdit(props) {
             phone: activeInformation?.detail?.phone || "",
             email: activeInformation?.detail?.email || "",
         });
+
+      const url = '';
+      // const [data, setData] = useState({activeInfo});
+
 
         const handlePointUpdate = (value, index) => {
             const tempValues = { ...values };
@@ -405,7 +411,7 @@ export default function CreateEdit(props) {
             };
 
             const handleSubmission = () => {
-                // console.log(values);
+                console.log(values);
                 switch (sections[activeSectionKey]) {
                   case sections.basicInfo: {
                     const tempDetail = {
@@ -544,7 +550,14 @@ export default function CreateEdit(props) {
                     }));
                     break;
                   }
-                }
+                } //switch case end
+                // preventDefault();
+                // Axios.post(url, {
+                //   values
+                // })
+                // .then(res =>{
+                //   console.log(res.data)
+                // })
               };
             
               const handleAddNew = () => {
@@ -627,6 +640,13 @@ export default function CreateEdit(props) {
                   summary: typeof activeInfo?.detail !== "object" ? activeInfo.detail : "",
                   other: typeof activeInfo?.detail !== "object" ? activeInfo.detail : "",
                 });
+                console.log(activeInfo);
+                // Axios.post(url, {
+                //   activeInfo,
+                // })
+                // .then(res =>{
+                //   console.log(res.data)
+                // })
               }, [activeSectionKey]);
             
               useEffect(() => {
@@ -716,6 +736,7 @@ export default function CreateEdit(props) {
         </div>
 
         {generateBody()}
+
 
         <button onClick={handleSubmission}>Save</button>
       </div>
